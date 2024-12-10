@@ -1,0 +1,92 @@
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #102238;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* accordeon effect */
+
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    transform: perspective(2000px);
+    width: 110%;
+    margin: 0 auto;
+}
+
+.list .item{
+    background-color: #657D96;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    transition: all .5s ease;
+    filter: brightness(1);
+    position: relative;
+}
+
+.list .item:hover{
+    filter: brightness(1);
+    transform: translateZ(250px);
+    border-radius: 10px;
+}
+
+.list .item:hover + *{
+    filter: brightness(.9);
+    transform: translateZ(150px) rotateY(40deg);
+    border-radius: 10px;
+}
+
+.list .item:hover + * + *{
+    filter: brightness(.8);
+    transform: translateZ(70px) rotateY(20deg);
+    border-radius: 10px;
+}
+
+.list .item:hover + * + * + *{
+    filter: brightness(.7);
+    transform: translateZ(30px) rotateY(10deg);
+    border-radius: 10px;
+}
+
+.list .item:hover + * + * + * + *{
+    filter: brightness(.6);
+    transform: translateZ(0px) rotateY(0deg);
+    border-radius: 10px;
+}
+
+.list .item:has(+ *:hover){
+    filter: brightness(.9);
+    transform: translateZ(150px) rotateY(-40deg);
+    border-radius: 10px;
+}
+
+.list .item:has(+ * + *:hover){
+    filter: brightness(.8);
+    transform: translateZ(70px) rotateY(-20deg);
+    border-radius: 10px;
+}
+.list .item:has(+ * + * + *:hover){
+    filter: brightness(.7);
+    transform: translateZ(30px) rotateY(-10deg);
+    border-radius: 10px;
+}
+
+.list .item:has(+ * + * + * + *:hover){
+    filter: brightness(.6);
+    transform: translateZ(0px) rotateY(-0deg);
+    border-radius: 10px;
+}
+
+.list .item img{
+    width: 100%;
+}
